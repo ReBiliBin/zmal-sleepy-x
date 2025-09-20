@@ -1,4 +1,4 @@
-本仓库代码来源为 [sleepyclient-magisk](https://github.com/sleepy-project/sleepy/tree/main/client/magisk)，稍微进行了修改。
+本仓库代码来源为 [sleepyclient-magisk](https://github.com/sleepy-project/sleepy/tree/main/client/magisk)，稍微进行了修改。鸣谢@kmizmal
 
 # 配置
 
