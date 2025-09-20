@@ -88,17 +88,15 @@ send_status() {
 
   log "$res_up"
   
-  # 在send_status函数中添加调试信息
-  log "尝试请求URL: $URL"
-  log "请求数据: {\"secret\": \"${SECRET}\", \"id\": \"${device_id}\", \"show_name\": \"${device_model}\", \"using\": ${using}, \"app_name\": \"$res_up\"}"
+  # send_status调试用
+  # log "尝试请求URL: $URL"
+  # log "请求数据: {\"secret\": \"${SECRET}\", \"id\": \"${device_id}\", \"show_name\": \"${device_model}\", \"using\": ${using}, \"app_name\": \"$res_up\"}"
 
   http_code=$(curl -v -s --connect-timeout 35 --max-time 100 -w "%{http_code}" -o ./curl_body "$URL" \
   -X POST \
   -H "Content-Type: application/json" \
-  -d '{"secret": "'"${SECRET}"'", "id": "'"${device_id}"'", "show_name": "'"${device_model}"'", "using": '"${using}"', "app_name": "'"$res_up"'"}')
+  -d '{"secret": "'"${SECRET}"'", "id": "'"${DEVICE_ID}"'", "show_name": "'"${device_model}"'", "using": '"${using}"', "app_name": "'"$res_up"'"}')
 
-# 记录完整的curl输出
-  log "完整响应: $(cat ./curl_body)"
   log "HTTP状态码: $http_code"
 
   if [ "$http_code" -ne 200 ]; then
